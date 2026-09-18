@@ -31,26 +31,30 @@ components/
   contact/              QuoteForm
 lib/
   site.ts               all business content — the single source of truth
+  gallery.ts            reads public/images/gallery/ at build time — see below
   quote.ts              form validation shared by the client and the API route
   utils.ts
 styles/brand.css        brand tokens (@theme)
 public/images/          logo, Open Graph card, placeholder imagery + README
+public/images/gallery/  the projects gallery — drop a photo in, no code change
 ```
 
 ## Content
 
 Everything the site says about the business lives in `lib/site.ts`. Contact
-details, service copy and gallery captions are edited there, not in components.
+details and service copy are edited there, not in components. Gallery photos
+are the one exception — see "The projects gallery" below.
 
 Nothing in that file may be extended with invented history, certifications,
 awards, client names, project counts, guarantees, a street address, extra email
 addresses, social profiles or a website domain. Only material the business
 supplies goes in.
 
-Gallery items carry a `kind` field. `"reference"` items are labelled on the site
-as design references and are **not** presented as completed installations.
-Switch an item to `"project"` only once the business confirms the photograph
-shows its own work.
+Gallery photos are read from `public/images/gallery/` (`lib/gallery.ts`), not
+listed in `lib/site.ts`. Their filename encodes a `reference`/`project` flag;
+anything not explicitly `project` is labelled on the site as a design
+reference and is **not** presented as a completed installation. See
+`public/images/README.md` for the naming convention.
 
 ## Brand
 

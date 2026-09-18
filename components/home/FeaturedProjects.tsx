@@ -3,10 +3,11 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { ProjectGallery } from "@/components/projects/ProjectGallery";
-import { gallery } from "@/lib/site";
+import { getGalleryItems, pickDiverse } from "@/lib/gallery";
 
-export function FeaturedProjects() {
-  const featured = gallery.slice(0, 6);
+export async function FeaturedProjects() {
+  const gallery = await getGalleryItems();
+  const featured = pickDiverse(gallery, 6);
   const hasReference = featured.some((item) => item.kind === "reference");
 
   return (

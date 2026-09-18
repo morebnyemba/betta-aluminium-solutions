@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { CtaBand } from "@/components/home/CtaBand";
-import { gallery } from "@/lib/site";
+import { getGalleryItems } from "@/lib/gallery";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -12,7 +12,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/projects" },
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const gallery = await getGalleryItems();
   const hasReference = gallery.some((item) => item.kind === "reference");
 
   return (

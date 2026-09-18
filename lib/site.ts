@@ -219,93 +219,9 @@ export type GalleryItem = {
   span?: "tall" | "wide";
 };
 
-export const gallery: GalleryItem[] = [
-  {
-    id: "g1",
-    title: "Aluminium glass facade",
-    category: "Commercial",
-    image: "/images/project-facade.jpg",
-    alt: "Multi-storey aluminium and glass facade on a commercial building",
-    kind: "reference",
-    span: "tall",
-  },
-  {
-    id: "g2",
-    title: "Residential window set",
-    category: "Windows",
-    image: "/images/project-windows-residential.jpg",
-    alt: "Aluminium windows in a contemporary residential elevation",
-    kind: "reference",
-  },
-  {
-    id: "g3",
-    title: "Sliding door opening",
-    category: "Doors",
-    image: "/images/project-sliding-door.jpg",
-    alt: "Aluminium sliding door opening onto an outdoor terrace",
-    kind: "reference",
-    span: "wide",
-  },
-  {
-    id: "g4",
-    title: "Office partition run",
-    category: "Partitions",
-    image: "/images/project-office-partition.jpg",
-    alt: "Glazed aluminium partitions dividing an office floor",
-    kind: "reference",
-  },
-  {
-    id: "g5",
-    title: "Retail shopfront",
-    category: "Shopfronts",
-    image: "/images/project-shopfront.jpg",
-    alt: "Aluminium and glass retail shopfront with a glazed entrance door",
-    kind: "reference",
-    span: "tall",
-  },
-  {
-    id: "g6",
-    title: "Shower enclosure",
-    category: "Partitions",
-    image: "/images/project-shower.jpg",
-    alt: "Framed glass shower enclosure in a tiled bathroom",
-    kind: "reference",
-  },
-  {
-    id: "g7",
-    title: "Commercial glazed entrance",
-    category: "Commercial",
-    image: "/images/project-entrance.jpg",
-    alt: "Glazed aluminium entrance to a commercial building",
-    kind: "reference",
-  },
-  {
-    id: "g8",
-    title: "Corner window detail",
-    category: "Windows",
-    image: "/images/project-corner-window.jpg",
-    alt: "Corner aluminium window detail against a rendered wall",
-    kind: "reference",
-    span: "wide",
-  },
-  {
-    id: "g9",
-    title: "Entrance door set",
-    category: "Doors",
-    image: "/images/project-entrance-door.jpg",
-    alt: "Aluminium entrance door set with a glazed side panel",
-    kind: "reference",
-  },
-  {
-    id: "g10",
-    title: "Large commercial glazing",
-    category: "Commercial",
-    image: "/images/project-commercial-glazing.jpg",
-    alt: "Large-format aluminium glazing across a commercial frontage",
-    kind: "reference",
-    span: "tall",
-  },
-];
+// Gallery items are no longer listed here — they're read straight from
+// public/images/gallery/ at build time. See lib/gallery.ts and
+// public/images/README.md.
 
 export const projectCategories: Array<ProjectCategory | "All"> = [
   "All",

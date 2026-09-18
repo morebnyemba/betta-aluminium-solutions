@@ -39,30 +39,63 @@ switch off `unoptimized` automatically once the extension isn't `.svg`.
 | `service-partitions.jpg` | Ribbed glass partition wall, office interior | 9:7 | 6044814 |
 | `service-shopfronts.jpg` | Empty aluminium-framed shopfront glazing | 9:7 | 32367382 |
 | `service-fabrication.jpg` | Sparks from cutting a steel section on site | 9:7 | 7461112 |
-| `project-facade.jpg` | Curved glass office tower, low angle | 9:13 | 206232 |
-| `project-windows-residential.jpg` | Minimalist modern house exterior | 5:4 | 8134820 |
-| `project-sliding-door.jpg` | House with glass doors onto a lawn | 13:8 | 35361412 |
-| `project-office-partition.jpg` | Office interior with glass wall panels | 5:4 | 3801167 |
-| `project-shopfront.jpg` | Same empty shopfront as above, portrait crop | 9:13 | 32367382 |
-| `project-shower.jpg` | Framed glass shower enclosure, bathroom | 5:4 | 7005268 |
-| `project-entrance.jpg` | Repetitive glass curtain-wall grid | 5:4 | 7078620 |
-| `project-corner-window.jpg` | Glass facade detail with sun-shade louvres | 13:8 | 18356512 |
-| `project-entrance-door.jpg` | Double aluminium-framed entrance doors | 5:4 | 7638806 |
-| `project-commercial-glazing.jpg` | Large-format glass curtain wall, close-up | 9:13 | 35158336 |
 
 Every candidate was checked for legible third-party brand names, logos or
 signage before use (several early picks were rejected for exactly that — a
 storefront's sign, a company decal on glass, a gallery's name etched into a
-door) so none of this imagery identifies a specific real business.
+door) so none of this imagery identifies a specific real business. The
+gallery photos below (`images/gallery/`) went through the same screening.
 
 `hero-slide-2.jpg` and `hero-slide-3.jpg` are wider crops of the same source
-photos as `project-facade.jpg` and `service-doors.jpg` — reusing already-vetted
-images rather than re-sourcing and re-screening new ones for two slides. Worth
-swapping for something distinct once real photography replaces either set.
+photos as `gallery/commercial-reference-aluminium-glass-facade.jpg` and
+`service-doors.jpg` — reusing already-vetted images rather than re-sourcing
+and re-screening new ones for two slides. Worth swapping for something
+distinct once real photography replaces either set.
+
+## The projects gallery — `images/gallery/`
+
+The `/projects` page, its homepage preview, and each service page's "related
+work" strip all read directly from this folder (`lib/gallery.ts`, at build
+time) — nothing in code lists individual gallery photos. **Drop a photo in
+here and rebuild/redeploy; it appears with no code change.**
+
+Name it `{category}-{reference|project}-{title}.ext` — hyphens or
+underscores both work as separators, and the category and kind tokens can
+appear anywhere in the name:
+
+- **category** — `windows`, `doors`, `partitions`, `shopfronts` or
+  `commercial`. Missing or unrecognised → filed under Commercial rather than
+  dropped, so a photo never silently vanishes for not following the
+  convention.
+- **kind** — `reference` (default, shown as a design reference, not
+  Betta's own installation) or `project` (a confirmed real Betta job — use
+  this **only** once the business confirms the photo is its own work, per
+  the rule below). Missing → `reference`.
+- **title** — everything else, hyphen/underscore-separated; becomes the
+  display title and the alt text, so name it descriptively
+  (`windows-project-harare-office-corner-glazing.jpg`, not `IMG_4821.jpg`).
+
+The masonry layout's tall/wide spans are read from the photo's actual
+dimensions (`lib/gallery.ts`, via `sharp`) — no manual span flag needed.
+
+Current files, all still `reference`:
+
+| File | Category |
+| --- | --- |
+| `commercial-reference-aluminium-glass-facade.jpg` | Commercial |
+| `commercial-reference-commercial-glazed-entrance.jpg` | Commercial |
+| `commercial-reference-large-commercial-glazing.jpg` | Commercial |
+| `doors-reference-entrance-door-set.jpg` | Doors |
+| `doors-reference-sliding-door-opening.jpg` | Doors |
+| `partitions-reference-office-partition-run.jpg` | Partitions |
+| `partitions-reference-shower-enclosure.jpg` | Partitions |
+| `shopfronts-reference-retail-shopfront.jpg` | Shopfronts |
+| `windows-reference-corner-window-detail.jpg` | Windows |
+| `windows-reference-residential-window-set.jpg` | Windows |
 
 ## Attribution rule
 
-Gallery items in `lib/site.ts` carry a `kind` field. Anything still marked
-`"reference"` is labelled on the site as a design reference and is **not**
-presented as a Betta Aluminium Solutions installation. Switch an item to
-`"project"` only once the business confirms the photograph shows its own work.
+Any gallery photo whose filename doesn't carry `project` is labelled on the
+site as a design reference and is **not** presented as a Betta Aluminium
+Solutions installation. Rename a file to swap `reference` for `project`
+only once the business confirms the photograph shows its own work.

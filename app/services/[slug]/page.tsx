@@ -8,7 +8,8 @@ import { ArchImage } from "@/components/ui/ArchImage";
 import { Button } from "@/components/ui/Button";
 import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { CtaBand } from "@/components/home/CtaBand";
-import { gallery, services } from "@/lib/site";
+import { services } from "@/lib/site";
+import { getGalleryItems } from "@/lib/gallery";
 
 type Params = { slug: string };
 
@@ -57,6 +58,7 @@ export default async function ServiceDetailPage({
 
   const service = services[index];
   const next = services[(index + 1) % services.length];
+  const gallery = await getGalleryItems();
   const related = gallery.filter(
     (item) => item.category === relatedCategory[service.slug],
   );
