@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/images/og.png",
+        url: "/images/og.jpg",
         width: 1200,
         height: 630,
         alt: `${site.name} — ${site.tagline}`,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title:
       "Betta Aluminium Solutions | Aluminium Windows, Doors & Fabrication",
     description: site.description,
-    images: ["/images/og.png"],
+    images: ["/images/og.jpg"],
   },
   // Favicon and Apple touch icon come from app/icon.png and app/apple-icon.png,
   // both generated from the supplied logo artwork.

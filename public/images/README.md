@@ -10,10 +10,18 @@
 - `betta-logo-full.png` — the original, uncropped lockup as supplied
   (1774 × 887, includes the tagline and service list). Not referenced by any
   page; kept only as the source of record if the full lockup is needed again.
+- `og.jpg` — the social-share preview image (Open Graph + Twitter card),
+  1200 × 630. Composed from `hero-slide-1.jpg` with the same dark scrim
+  recipe as the hero carousel, the current (cropped) `betta-logo.png`, and
+  the tagline/descriptor rendered as text since the crop removed that text
+  from the logo file itself. Regenerate this — same background photo, same
+  scrim, current logo — any time the logo or hero photo changes, so it
+  doesn't go stale the way the previous version did (it kept the old
+  uncropped logo after the crop, and used a plain white background).
 
 ## Placeholder photography — replace before launch
 
-Every `*.jpg` file below (everything except `betta-logo.png` and `og.png`) is
+Every `*.jpg` file below (everything except `betta-logo.png` and `og.jpg`) is
 a **stock photo standing in for real project photography**, not a picture of
 Betta Aluminium Solutions' own work. All of it is licensed for free
 commercial use with no attribution required (Pexels License), so nothing
