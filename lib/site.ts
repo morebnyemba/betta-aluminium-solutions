@@ -16,7 +16,9 @@ export const site = {
   location: "Harare, Zimbabwe",
   // No public domain has been supplied. Set NEXT_PUBLIC_SITE_URL at deploy time
   // and canonical URLs, sitemap and Open Graph tags pick it up automatically.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  // `||` (not `??`) so an env var present but left blank — an easy mistake in
+  // a host's dashboard UI — still falls back instead of crashing `new URL()`.
+  url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
 } as const;
 
 export const phones = [
