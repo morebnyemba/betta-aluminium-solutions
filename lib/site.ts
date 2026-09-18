@@ -27,7 +27,7 @@ export const phones = [
   { label: "International", number: "+44 7947 129 539" },
 ] as const;
 
-export const email = "bnayasha57@gmail.com";
+export const email = "info@bettaaluminium.co.zw";
 
 export const nav = [
   { href: "/", label: "Home" },
@@ -74,8 +74,7 @@ export const services: Service[] = [
       "Finishes selected to suit the building",
     ],
     image: "/images/service-windows.jpg",
-    imageAlt:
-      "Aluminium-framed window system in a contemporary room, seen from inside",
+    imageAlt: "Black aluminium corner window installed on a building exterior",
   },
   {
     slug: "doors",
@@ -92,8 +91,7 @@ export const services: Service[] = [
       "Frames squared and levelled on installation",
     ],
     image: "/images/service-doors.jpg",
-    imageAlt:
-      "Wide aluminium sliding door set opening from a living space onto a terrace",
+    imageAlt: "Black aluminium security door with a roller shutter panel",
   },
   {
     slug: "partitions",
@@ -110,8 +108,7 @@ export const services: Service[] = [
       "Shower and bathroom enclosures",
     ],
     image: "/images/service-partitions.jpg",
-    imageAlt:
-      "Glazed aluminium partition dividing an open-plan office interior",
+    imageAlt: "Black-framed glass shower enclosure with sliding doors",
   },
   {
     slug: "shopfronts",
@@ -128,8 +125,7 @@ export const services: Service[] = [
       "Framing set out across the full elevation",
     ],
     image: "/images/service-shopfronts.jpg",
-    imageAlt:
-      "Aluminium and glass shopfront on a commercial street frontage",
+    imageAlt: "Glazed aluminium storefront entrance with double doors",
   },
   {
     slug: "aluminium-fabrication",

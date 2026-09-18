@@ -18,47 +18,53 @@
   scrim, current logo — any time the logo or hero photo changes, so it
   doesn't go stale the way the previous version did (it kept the old
   uncropped logo after the crop, and used a plain white background).
+- `about-workshop.jpg`, `service-windows.jpg`, `service-doors.jpg`,
+  `service-partitions.jpg`, `service-shopfronts.jpg` — real photographs of
+  Betta Aluminium Solutions' own completed work, supplied by the business.
+  These are **not stock** and each is a plain copy of one of the `project`
+  photos in `images/gallery/` (see the table below for which one), reused
+  rather than uploaded twice so there's one real source per subject:
 
-## Placeholder photography — replace before launch
+  | File | Reused from `images/gallery/` |
+  | --- | --- |
+  | `about-workshop.jpg` | `doors-project-kitchen-stable-door.jpg` |
+  | `service-windows.jpg` | `windows-project-corner-window-installation.jpg` |
+  | `service-doors.jpg` | `doors-project-roller-shutter-door.jpg` |
+  | `service-partitions.jpg` | `partitions-project-double-shower-enclosure.jpg` |
+  | `service-shopfronts.jpg` | `shopfronts-project-glazed-storefront-entrance.jpg` |
 
-Every `*.jpg` file below (everything except `betta-logo.png` and `og.jpg`) is
-a **stock photo standing in for real project photography**, not a picture of
-Betta Aluminium Solutions' own work. All of it is licensed for free
-commercial use with no attribution required (Pexels License), so nothing
-needs crediting on the live site — but none of it may be presented as a
-completed Betta installation. Every gallery item's `kind` stays `"reference"`
-(see below) until the business supplies a real photograph.
+  Replacing any of these five means updating both copies — the one here and
+  its match in `images/gallery/` — since nothing in code links them; they're
+  independent files that happen to start out identical.
 
-Drop a real photograph in at the same path (`.jpg`, `.webp` or `.avif` all
-work) and update the matching `image:` value in `lib/site.ts`. Nothing else in
-the codebase needs to change — every image goes through `next/image` with
-explicit dimensions and responsive `sizes`, and `ArchImage`/`ProjectGallery`
-switch off `unoptimized` automatically once the extension isn't `.svg`.
+## Placeholder photography — still stock, still needs replacing
 
-| File | Depicts (stock, not Betta's work) | Aspect | Source (Pexels photo ID) |
-| --- | --- | --- | --- |
-| `hero-slide-1.jpg` | Contemporary house with a cantilevered, glazed upper storey | full-bleed | 4744622 |
-| `hero-slide-2.jpg` | Glass-fronted commercial tower, low angle | full-bleed | 206232 |
-| `hero-slide-3.jpg` | House with large aluminium-framed glass doors onto a lawn | full-bleed | 7031607 |
-| `hero-slide-4.jpg` | House with wide sliding glass doors onto a garden | full-bleed | 35361412 |
-| `about-workshop.jpg` | Installing a window frame, seen from behind | 6:5 | 5691531 |
-| `service-windows.jpg` | Aluminium-framed window grid on a building facade | 9:7 | 8433046 |
-| `service-doors.jpg` | House exterior with large glass sliding doors | 9:7 | 7031607 |
-| `service-partitions.jpg` | Ribbed glass partition wall, office interior | 9:7 | 6044814 |
-| `service-shopfronts.jpg` | Empty aluminium-framed shopfront glazing | 9:7 | 32367382 |
-| `service-fabrication.jpg` | Sparks from cutting a steel section on site | 9:7 | 7461112 |
+- `hero-slide-1.jpg` through `hero-slide-4.jpg` (full-bleed carousel
+  backgrounds) and `service-fabrication.jpg` are the only images left that
+  are still **stock photos standing in for real project photography**, not
+  pictures of Betta Aluminium Solutions' own work. They're licensed for free
+  commercial use with no attribution required (Pexels License).
+  `hero-slide-2.jpg` and `hero-slide-3.jpg` are wider crops of the same
+  source photos as `doors-project-glazed-double-door-set.jpg`'s original
+  stock predecessor and the old `service-doors.jpg` — kept as-is because a
+  full-bleed hero background needs higher resolution than the real site
+  photos currently available (all ≤ 2000px on the long edge; hero renders up
+  to 1920px wide and would visibly soften if stretched further). Swap these
+  once a wide, high-resolution photo of Betta's own work exists.
 
-Every candidate was checked for legible third-party brand names, logos or
-signage before use (several early picks were rejected for exactly that — a
-storefront's sign, a company decal on glass, a gallery's name etched into a
-door) so none of this imagery identifies a specific real business. The
-gallery photos below (`images/gallery/`) went through the same screening.
+  | File | Depicts (stock, not Betta's work) | Aspect | Source (Pexels photo ID) |
+  | --- | --- | --- | --- |
+  | `hero-slide-1.jpg` | Contemporary house with a cantilevered, glazed upper storey | full-bleed | 4744622 |
+  | `hero-slide-2.jpg` | Glass-fronted commercial tower, low angle | full-bleed | 206232 |
+  | `hero-slide-3.jpg` | House with large aluminium-framed glass doors onto a lawn | full-bleed | 7031607 |
+  | `hero-slide-4.jpg` | House with wide sliding glass doors onto a garden | full-bleed | 35361412 |
+  | `service-fabrication.jpg` | Sparks from cutting a steel section on site | 9:7 | 7461112 |
 
-`hero-slide-2.jpg` and `hero-slide-3.jpg` are wider crops of the same source
-photos as `gallery/commercial-reference-aluminium-glass-facade.jpg` and
-`service-doors.jpg` — reusing already-vetted images rather than re-sourcing
-and re-screening new ones for two slides. Worth swapping for something
-distinct once real photography replaces either set.
+  Drop a real photograph in at the same path (`.jpg`, `.webp` or `.avif` all
+  work) and nothing else in the codebase needs to change — every image goes
+  through `next/image` with explicit dimensions and responsive `sizes`, and
+  `ArchImage`/`ProjectGallery` switch off `unoptimized` automatically once
+  the extension isn't `.svg`.
 
 ## The projects gallery — `images/gallery/`
 
@@ -86,20 +92,34 @@ appear anywhere in the name:
 The masonry layout's tall/wide spans are read from the photo's actual
 dimensions (`lib/gallery.ts`, via `sharp`) — no manual span flag needed.
 
-Current files, all still `reference`:
+Current files — all `project`, confirmed by the business as its own
+completed work:
 
 | File | Category |
 | --- | --- |
-| `commercial-reference-aluminium-glass-facade.jpg` | Commercial |
-| `commercial-reference-commercial-glazed-entrance.jpg` | Commercial |
-| `commercial-reference-large-commercial-glazing.jpg` | Commercial |
-| `doors-reference-entrance-door-set.jpg` | Doors |
-| `doors-reference-sliding-door-opening.jpg` | Doors |
-| `partitions-reference-office-partition-run.jpg` | Partitions |
-| `partitions-reference-shower-enclosure.jpg` | Partitions |
-| `shopfronts-reference-retail-shopfront.jpg` | Shopfronts |
-| `windows-reference-corner-window-detail.jpg` | Windows |
-| `windows-reference-residential-window-set.jpg` | Windows |
+| `commercial-project-glass-balustrade-staircase.jpg` | Commercial |
+| `commercial-project-glass-curtain-wall-elevation.jpg` | Commercial |
+| `commercial-project-mirrored-glass-facade.jpg` | Commercial |
+| `commercial-project-modular-glass-room-complete.jpg` | Commercial |
+| `commercial-project-modular-room-installation-in-progress.jpg` | Commercial |
+| `doors-project-double-entrance-doors.jpg` | Doors |
+| `doors-project-glazed-double-door-set.jpg` | Doors |
+| `doors-project-kitchen-stable-door.jpg` | Doors |
+| `doors-project-pivot-door-interior.jpg` | Doors |
+| `doors-project-roller-shutter-door.jpg` | Doors |
+| `doors-project-security-door-with-roller-shutter.jpg` | Doors |
+| `partitions-project-double-shower-enclosure.jpg` | Partitions |
+| `shopfronts-project-glazed-storefront-entrance.jpg` | Shopfronts |
+| `windows-project-corner-window-installation.jpg` | Windows |
+| `windows-project-residential-facade-gable-window.jpg` | Windows |
+
+The gallery previously held ten `reference` stock photos (screened Pexels
+images, one set per category) as a placeholder before any real project
+photos existed. They've been removed now that every category has genuine
+Betta work — real photos read better than stock once there's a choice, and
+mixing the two would have undersold the real ones. If a category ever needs
+filling out again before more real photos arrive, a `reference` stock photo
+is the fallback, not a re-labelled real one from a different category.
 
 ## Attribution rule
 

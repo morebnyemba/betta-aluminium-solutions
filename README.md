@@ -79,12 +79,16 @@ needed.
 
 ## Images
 
-Every photographic slot currently holds a stock photo standing in for real
-project photography (previously these were generated placeholder SVGs).
-`public/images/README.md` lists every file, what it currently depicts, its
-source and the aspect it is laid out for. Drop a real `.jpg`, `.webp` or
-`.avif` in at the same path and update `lib/site.ts` when the business
-supplies its own photography — nothing else needs to change.
+Most photographic slots now hold real photographs of Betta Aluminium
+Solutions' own completed work, supplied by the business: the entire
+`public/images/gallery/` folder, plus `about-workshop.jpg` and four of the
+five service images. The hero carousel backgrounds and
+`service-fabrication.jpg` are still stock photos standing in for real
+photography, kept because the real photos on hand aren't high-resolution
+enough for a full-bleed hero background. `public/images/README.md` lists
+every file, which are real vs. still stock, and — for the stock ones — what
+they depict and their source. Drop a real `.jpg`, `.webp` or `.avif` in at
+the same path to replace a stock one; nothing else needs to change.
 
 Raster photographs are optimized automatically by `next/image`;
 `components/ui/ArchImage.tsx` and `ProjectGallery` only skip optimization for
