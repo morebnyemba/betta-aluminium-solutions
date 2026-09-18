@@ -121,7 +121,13 @@ export function Hero() {
 
         <Container className="relative flex h-full items-end pb-20 sm:items-center sm:pb-0">
           <div className="max-w-xl">
-            <Eyebrow tone="light">{slides[index].eyebrow}</Eyebrow>
+            {/* Keyed on the slide index so the rule-brand accent inside
+                Eyebrow — which only plays its draw-in animation once, on
+                mount — remounts and replays on every slide change instead of
+                sitting frozen at its finished state after the first slide. */}
+            <Eyebrow key={index} tone="light">
+              {slides[index].eyebrow}
+            </Eyebrow>
 
             <h1 className="mt-6 text-[2.15rem] leading-[1.06] text-white sm:text-5xl lg:text-[3.4rem]">
               {slides[index].heading}
