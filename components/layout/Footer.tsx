@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "./Logo";
 import { email, nav, phones, services, site } from "@/lib/site";
-import { telHref } from "@/lib/utils";
+import { telHref, whatsappHref } from "@/lib/utils";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -58,6 +58,17 @@ export function Footer() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href={whatsappHref(phones[0].number, "Hi Betta Aluminium, I'd like a quote.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center gap-3 text-white/65 transition-colors hover:text-white sm:min-h-9"
+              >
+                <MessageCircle size={15} className="shrink-0 text-orange" aria-hidden />
+                <span>WhatsApp</span>
+              </a>
+            </li>
             <li>
               <a
                 href={`mailto:${email}`}

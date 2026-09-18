@@ -87,10 +87,18 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-5">
+          <a
+            href={telHref(phones[0].number)}
+            className="hidden items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-slate transition-colors hover:text-ink lg:inline-flex"
+          >
+            <Phone size={15} className="text-orange" aria-hidden />
+            <span className="tabular-nums">{phones[0].number}</span>
+          </a>
+
           <Link
             href="/contact"
-            className="hidden min-h-11 items-center bg-red px-6 text-[0.76rem] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-red-dark sm:inline-flex"
+            className="hidden min-h-11 items-center bg-red px-6 text-[0.76rem] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-red-dark lg:inline-flex"
           >
             Get a Quote
           </Link>
