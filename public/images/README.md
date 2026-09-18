@@ -24,7 +24,7 @@ switch off `unoptimized` automatically once the extension isn't `.svg`.
 
 | File | Depicts (stock, not Betta's work) | Aspect | Source (Pexels photo ID) |
 | --- | --- | --- | --- |
-| `hero-architecture.jpg` | Stone-and-aluminium-panel building exterior | 6:5 | 23319058 |
+| `hero-architecture.jpg` | Modern house with a cantilevered, glazed upper storey | 6:5 | 4744622 |
 | `about-workshop.jpg` | Installing a window frame, seen from behind | 6:5 | 5691531 |
 | `service-windows.jpg` | Aluminium-framed window grid on a building facade | 9:7 | 8433046 |
 | `service-doors.jpg` | House exterior with large glass sliding doors | 9:7 | 7031607 |

@@ -64,9 +64,9 @@ to a dark ember rather than to the bright orange, which keeps white text above
 6:1; the bright orange sits on top as the accent.
 
 The logo is used unmodified everywhere — never recoloured, redrawn, cropped or
-distorted. In the charcoal footer it sits on a white plate, because the artwork's
-tagline and service strip are dark with a light halo and are unreadable directly
-on charcoal.
+distorted. Its artwork already carries a white outline around every shape and
+letter, which is what keeps it legible directly on the charcoal footer with no
+extra background plate needed.
 
 ## Images
 

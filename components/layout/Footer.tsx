@@ -10,14 +10,9 @@ export function Footer() {
 
   return (
     <footer className="bg-charcoal text-white/70">
-      {/* The logo's tagline and service strip are dark artwork with a light
-          halo, so on charcoal it sits on a white plate to stay legible. The
-          artwork itself is unmodified. */}
       <Container className="grid gap-12 py-16 md:grid-cols-12 md:py-20">
         <div className="md:col-span-5">
-          <div className="inline-flex bg-white p-5">
-            <Logo width={230} className="w-[190px] sm:w-[230px]" />
-          </div>
+          <Logo width={230} className="w-[190px] sm:w-[230px]" />
           <p className="mt-6 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-orange">
             {site.tagline}
           </p>
