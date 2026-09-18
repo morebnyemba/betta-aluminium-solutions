@@ -70,15 +70,17 @@ on charcoal.
 
 ## Images
 
-All photographic slots currently hold generated architectural placeholders, each
-tagged `PLACEHOLDER` in-image. `public/images/README.md` lists every file, what
-photograph to supply and the aspect it is laid out for. Drop a real `.jpg`,
-`.webp` or `.avif` in at the same path and update `lib/site.ts`.
+Every photographic slot currently holds a stock photo standing in for real
+project photography (previously these were generated placeholder SVGs).
+`public/images/README.md` lists every file, what it currently depicts, its
+source and the aspect it is laid out for. Drop a real `.jpg`, `.webp` or
+`.avif` in at the same path and update `lib/site.ts` when the business
+supplies its own photography — nothing else needs to change.
 
-SVG placeholders are passed through `next/image` unoptimized (the optimizer will
-not process SVG without `dangerouslyAllowSVG`). Real raster photographs at the
-same paths are optimized automatically — `components/ui/ArchImage.tsx` switches
-on the file extension, so no config change is needed.
+Raster photographs are optimized automatically by `next/image`;
+`components/ui/ArchImage.tsx` and `ProjectGallery` only skip optimization for
+`.svg` sources (the optimizer can't process SVG without
+`dangerouslyAllowSVG`), so no config change was needed for this swap.
 
 ## Quote form
 

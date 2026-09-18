@@ -53,7 +53,7 @@ export function Hero() {
               className="absolute -bottom-3 -right-3 hidden h-28 w-28 border-b-[3px] border-r-[3px] border-orange sm:block"
             />
             <ArchImage
-              src="/images/hero-architecture.svg"
+              src="/images/hero-architecture.jpg"
               alt="Contemporary building with aluminium-framed glass windows and doors"
               ratio="aspect-[4/3] lg:aspect-[6/5]"
               sizes="(min-width: 1280px) 46vw, (min-width: 1024px) 50vw, 92vw"
