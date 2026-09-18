@@ -89,7 +89,8 @@ export function Footer() {
       <div className="border-t border-white/10">
         <Container className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-white/50">
-            &copy; {year} {site.name}
+            &copy; {year} {site.name} <span aria-hidden>&middot;</span> Website by
+            Slyker Tech
           </p>
           <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-2">
             {nav.map((item) => (
