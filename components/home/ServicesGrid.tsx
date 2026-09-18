@@ -40,9 +40,17 @@ export function ServicesGrid() {
                   <h3 className="text-lg font-bold tracking-tight text-ink sm:text-xl">
                     {service.name}
                   </h3>
+                  {/* A plain (non-animated) two-tone bar, not `.rule-brand` — that
+                      class now plays its own draw-in animation once on mount,
+                      which would already be finished by the time this is
+                      revealed on hover. */}
                   <span
                     aria-hidden
-                    className="rule-brand mt-3 block w-8 origin-left scale-x-0 transition-transform duration-300 motion-safe:group-hover:scale-x-100"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, var(--color-red) 0%, var(--color-red) 45%, var(--color-orange) 45%, var(--color-orange) 100%)",
+                    }}
+                    className="mt-3 block h-[3px] w-8 origin-left scale-x-0 transition-transform duration-300 motion-safe:group-hover:scale-x-100"
                   />
                   <p className="mt-3 text-sm leading-relaxed text-slate">
                     {service.summary}

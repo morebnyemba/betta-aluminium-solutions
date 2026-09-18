@@ -56,17 +56,72 @@
 }
 
 @layer components {
-  /* The angular roof line from the logo, reduced to a reusable rule. */
+  /*
+   * The angular roof line from the logo, reduced to a reusable rule. It draws
+   * in as solid red, then the trailing ~55% transitions to orange — two
+   * layered pseudo-elements rather than an animated gradient, since browsers
+   * can't reliably tween between two differently-shaped gradients.
+   *
+   * This plays once, timed from when the element mounts — not from when it
+   * scrolls into view like `.reveal` — so an instance far down the page will
+   * have already finished by the time anyone sees it. Fine for the common
+   * case (Eyebrow, above the fold); accepted as a limitation everywhere else
+   * rather than wiring every bare rule-brand span through an IntersectionObserver
+   * for a 3px accent.
+   */
   .rule-brand {
+    position: relative;
+    display: block;
     height: 3px;
     width: 3.5rem;
-    background: linear-gradient(
-      90deg,
-      var(--color-red) 0%,
-      var(--color-red) 45%,
-      var(--color-orange) 45%,
-      var(--color-orange) 100%
-    );
+    overflow: hidden;
+    background: var(--color-line);
+  }
+
+  .rule-brand::before,
+  .rule-brand::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+
+  .rule-brand::before {
+    left: 0;
+    width: 100%;
+    background: var(--color-red);
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: rule-brand-red 0.5s var(--ease-out-arch) forwards;
+  }
+
+  .rule-brand::after {
+    right: 0;
+    width: 55%;
+    background: var(--color-orange);
+    transform-origin: right;
+    transform: scaleX(0);
+    animation: rule-brand-orange 0.4s var(--ease-out-arch) 0.5s forwards;
+  }
+
+  @keyframes rule-brand-red {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes rule-brand-orange {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rule-brand::before,
+    .rule-brand::after {
+      animation: none;
+      transform: scaleX(1);
+    }
   }
 }
 
