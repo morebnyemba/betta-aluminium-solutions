@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { QuoteForm } from "@/components/contact/QuoteForm";
 import { email, phones, site } from "@/lib/site";
-import { telHref } from "@/lib/utils";
+import { telHref, whatsappHref } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -50,6 +50,25 @@ export default function ContactPage() {
                   </a>
                 </li>
               ))}
+
+              <li>
+                <a
+                  href={whatsappHref(phones[0].number, "Hi Betta Aluminium, I'd like a quote.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex min-h-16 items-center gap-4 py-4 transition-colors hover:bg-shell"
+                >
+                  <MessageCircle size={18} className="shrink-0 text-red" aria-hidden />
+                  <span>
+                    <span className="block text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-mute">
+                      WhatsApp
+                    </span>
+                    <span className="mt-0.5 block text-[1.05rem] font-semibold text-ink tabular-nums">
+                      {phones[0].number}
+                    </span>
+                  </span>
+                </a>
+              </li>
 
               <li>
                 <a

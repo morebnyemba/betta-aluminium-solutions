@@ -32,11 +32,13 @@ export default function ServicesPage() {
               key={service.slug}
               className="grid items-center gap-10 py-14 sm:py-16 lg:grid-cols-12 lg:gap-16 lg:py-20"
             >
-              <div
+              <Link
+                href={`/services/${service.slug}`}
+                aria-label={`${service.name} — explore this service`}
                 className={
                   i % 2 === 0
-                    ? "group lg:col-span-6"
-                    : "group lg:col-span-6 lg:order-2"
+                    ? "group block lg:col-span-6"
+                    : "group block lg:col-span-6 lg:order-2"
                 }
               >
                 <ArchImage
@@ -45,7 +47,7 @@ export default function ServicesPage() {
                   ratio="aspect-[16/10]"
                   sizes="(min-width: 1024px) 48vw, 92vw"
                 />
-              </div>
+              </Link>
 
               <div className={i % 2 === 0 ? "lg:col-span-6" : "lg:col-span-6 lg:order-1"}>
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-slate tabular-nums">

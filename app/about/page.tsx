@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -121,13 +123,23 @@ export default function AboutPage() {
           />
           <ul className="mt-12 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-5">
             {services.map((service, i) => (
-              <Reveal as="li" key={service.slug} delay={i * 60} className="bg-white p-7">
-                <h3 className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-ink">
-                  {service.name}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate">
-                  {service.summary}
-                </p>
+              <Reveal as="li" key={service.slug} delay={i * 60} className="bg-white">
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="group block h-full p-7 transition-colors hover:bg-shell"
+                >
+                  <h3 className="flex items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-ink">
+                    {service.name}
+                    <ArrowRight
+                      size={13}
+                      aria-hidden
+                      className="text-red opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
+                    />
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate">
+                    {service.summary}
+                  </p>
+                </Link>
               </Reveal>
             ))}
           </ul>
