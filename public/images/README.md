@@ -2,9 +2,14 @@
 
 ## Real assets in use
 
-- `betta-logo.png` — the supplied Betta Aluminium Solutions logo, 1774 × 887,
-  transparent background. Used unmodified in the navbar, footer and the
-  Open Graph image. Do not recolour, redraw or crop it.
+- `betta-logo.png` — the Betta Aluminium Solutions house mark and wordmark,
+  1774 × 728, transparent background. Used in the navbar and footer. Cropped
+  from the originally supplied lockup to remove the tagline and service-list
+  rows below the wordmark (a deliberate, requested change — see
+  `betta-logo-full.png` below). Do not recolour, redraw or crop it further.
+- `betta-logo-full.png` — the original, uncropped lockup as supplied
+  (1774 × 887, includes the tagline and service list). Not referenced by any
+  page; kept only as the source of record if the full lockup is needed again.
 
 ## Placeholder photography — replace before launch
 

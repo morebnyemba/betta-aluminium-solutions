@@ -4,9 +4,11 @@ import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 
 /**
- * The supplied artwork (1774 × 887) is used unmodified — not recoloured,
- * redrawn, cropped or boxed. Width is set per placement and the height follows
- * the real aspect ratio, so proportions are always preserved.
+ * The supplied artwork is cropped to the house mark and wordmark only — the
+ * tagline and service-list rows below them are removed at the asset level
+ * (public/images/betta-logo-full.png keeps the original, uncropped lockup).
+ * Width is set per placement and the height follows the real aspect ratio,
+ * so proportions are always preserved.
  */
 export function Logo({
   width,
@@ -22,9 +24,9 @@ export function Logo({
   const image = (
     <Image
       src="/images/betta-logo.png"
-      alt={`${site.name} — ${site.tagline}`}
+      alt={site.name}
       width={1774}
-      height={887}
+      height={728}
       priority={priority}
       sizes={`${width}px`}
       style={{ width, height: "auto" }}

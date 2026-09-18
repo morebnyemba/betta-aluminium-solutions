@@ -63,10 +63,15 @@ red carries brand-weight text and buttons at 6.6:1. The CTA band runs deep red
 to a dark ember rather than to the bright orange, which keeps white text above
 6:1; the bright orange sits on top as the accent.
 
-The logo is used unmodified everywhere — never recoloured, redrawn, cropped or
-distorted. Its artwork already carries a white outline around every shape and
-letter, which is what keeps it legible directly on the charcoal footer with no
-extra background plate needed.
+The logo mark is never recoloured, redrawn or distorted. It is cropped in one
+deliberate, requested way: `public/images/betta-logo.png` is the house icon
+and "Betta Aluminium Solutions" wordmark only — the tagline and service-list
+rows from the original supplied lockup are removed at the asset level, not
+hidden with CSS. The untouched original is kept at
+`public/images/betta-logo-full.png` for reference. The cropped artwork still
+carries a white outline around every shape and letter, which is what keeps it
+legible directly on the charcoal footer with no extra background plate
+needed.
 
 ## Images
 
