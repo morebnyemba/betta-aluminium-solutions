@@ -24,7 +24,10 @@ switch off `unoptimized` automatically once the extension isn't `.svg`.
 
 | File | Depicts (stock, not Betta's work) | Aspect | Source (Pexels photo ID) |
 | --- | --- | --- | --- |
-| `hero-architecture.jpg` | Modern house with a cantilevered, glazed upper storey | 6:5 | 4744622 |
+| `hero-slide-1.jpg` | Contemporary house with a cantilevered, glazed upper storey | full-bleed | 4744622 |
+| `hero-slide-2.jpg` | Glass-fronted commercial tower, low angle | full-bleed | 206232 |
+| `hero-slide-3.jpg` | House with large aluminium-framed glass doors onto a lawn | full-bleed | 7031607 |
+| `hero-slide-4.jpg` | House with wide sliding glass doors onto a garden | full-bleed | 35361412 |
 | `about-workshop.jpg` | Installing a window frame, seen from behind | 6:5 | 5691531 |
 | `service-windows.jpg` | Aluminium-framed window grid on a building facade | 9:7 | 8433046 |
 | `service-doors.jpg` | House exterior with large glass sliding doors | 9:7 | 7031607 |
@@ -46,6 +49,11 @@ Every candidate was checked for legible third-party brand names, logos or
 signage before use (several early picks were rejected for exactly that — a
 storefront's sign, a company decal on glass, a gallery's name etched into a
 door) so none of this imagery identifies a specific real business.
+
+`hero-slide-2.jpg` and `hero-slide-3.jpg` are wider crops of the same source
+photos as `project-facade.jpg` and `service-doors.jpg` — reusing already-vetted
+images rather than re-sourcing and re-screening new ones for two slides. Worth
+swapping for something distinct once real photography replaces either set.
 
 ## Attribution rule
 

@@ -126,3 +126,13 @@ and no text below WCAG AA contrast. Phone numbers are `tel:` links and the email
 is a `mailto:` link. Reveal animations are gated behind a `.js` class added
 before first paint, so content is never stuck invisible without scripting, and
 they are disabled under `prefers-reduced-motion`.
+
+The home hero is an auto-advancing carousel (`components/home/Hero.tsx`), which
+needs its own accessibility handling beyond the rest of the site: autoplay
+pauses on hover, on keyboard focus inside it, and permanently under
+`prefers-reduced-motion`; a visible pause/play button gives everyone else a way
+to stop it (WCAG 2.2.2); only the first slide loads with `priority` so the
+other three don't compete with it for LCP; and the heading/subtext/CTAs stay
+fixed while only the background photo rotates, so the page keeps exactly one
+`h1` and never mid-sentence swaps text under a screen reader or a keyboard
+user's focus.
