@@ -89,8 +89,15 @@ export function Footer() {
       <div className="border-t border-white/10">
         <Container className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-white/50">
-            &copy; {year} {site.name} <span aria-hidden>&middot;</span> Website by
-            Slyker Tech
+            &copy; {year} {site.name} <span aria-hidden>&middot;</span> Website by{" "}
+            <a
+              href="https://slykertech.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+            >
+              Slyker Tech Web Services
+            </a>
           </p>
           <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-2">
             {nav.map((item) => (
