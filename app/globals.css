@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@import "../styles/brand.css";
+
+@layer base {
+  :root {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      scroll-behavior: auto;
+    }
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    /* Nothing in the layout should ever push the page sideways. */
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink);
+    font-weight: 700;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* A visible, brand-coloured focus ring on every interactive element. */
+  :focus-visible {
+    outline: 2px solid var(--color-red);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-orange);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  /* The angular roof line from the logo, reduced to a reusable rule. */
+  .rule-brand {
+    height: 3px;
+    width: 3.5rem;
+    background: linear-gradient(
+      90deg,
+      var(--color-red) 0%,
+      var(--color-red) 45%,
+      var(--color-orange) 45%,
+      var(--color-orange) 100%
+    );
+  }
+}
+
+@layer utilities {
+  /*
+   * Scoped to .js, which an inline script adds to <html> before first paint.
+   * Without scripting — or if the observer never runs — every section renders
+   * fully visible instead of staying at opacity 0.
+   */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s var(--ease-out-arch),
+      transform 0.7s var(--ease-out-arch);
+    will-change: opacity, transform;
+  }
+
+  .js .reveal-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal,
+    .js .reveal-in {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}

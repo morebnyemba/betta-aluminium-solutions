@@ -1,0 +1,39 @@
+/*
+ * Betta Aluminium Solutions — brand tokens.
+ * Red and orange are sampled directly from the supplied logo artwork
+ * (public/images/betta-logo.png): #BE0101 and #FD7A00.
+ *
+ * Contrast note: #FD7A00 only reaches 2.6:1 against white, so orange is used
+ * for rules, frames, icons and fills — never for text or as a background
+ * behind light text. Text-weight brand colour is always --color-red (6.6:1).
+ */
+@theme {
+  /* Brand — sampled from the logo */
+  --color-red: #be0101;
+  --color-red-dark: #8f0101;
+  --color-red-deep: #6d0101;
+  --color-ember: #f64500;
+  --color-orange: #fd7a00;
+  --color-orange-soft: #ff9a3d;
+
+  /* Neutrals */
+  --color-ink: #14171a;
+  --color-charcoal: #1f2429;
+  --color-charcoal-soft: #333b43;
+  --color-slate: #5b646d;
+  --color-mute: #6b747e;
+  --color-line: #e3e6e9;
+  --color-line-soft: #eef0f2;
+  --color-shell: #f6f7f8;
+  --color-shell-deep: #eceef0;
+
+  /* Type */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+
+  /* Breakpoints — default Tailwind scale plus a narrow-phone stop */
+  --breakpoint-xs: 26rem;
+
+  /* Motion */
+  --ease-out-arch: cubic-bezier(0.22, 1, 0.36, 1);
+}
