@@ -7,24 +7,46 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import { site } from "@/lib/site";
+import { services, site } from "@/lib/site";
+
+// Copy per slide is drawn from — or a direct paraphrase of — the same
+// approved facts already in lib/site.ts and CtaBand's default text, not
+// written fresh for the carousel. See public/images/README.md for why.
+const windows = services.find((s) => s.slug === "windows")!;
+const doors = services.find((s) => s.slug === "doors")!;
 
 const slides = [
   {
     image: "/images/hero-slide-1.jpg",
     alt: "Contemporary house with a cantilevered, glazed upper storey",
+    eyebrow: site.name,
+    heading: "Quality aluminium solutions.",
+    accent: "Built for better spaces.",
+    body: "Professional aluminium windows, doors, partitions, shopfronts and custom fabrication for residential and commercial spaces.",
   },
   {
     image: "/images/hero-slide-2.jpg",
     alt: "Glass-fronted commercial tower seen from below",
+    eyebrow: windows.name,
+    heading: "Aluminium windows,",
+    accent: "made to measure.",
+    body: windows.summary,
   },
   {
     image: "/images/hero-slide-3.jpg",
     alt: "Modern house with large aluminium-framed glass doors onto a lawn",
+    eyebrow: doors.name,
+    heading: "Aluminium doors,",
+    accent: "built around the opening.",
+    body: doors.summary,
   },
   {
     image: "/images/hero-slide-4.jpg",
     alt: "House with wide sliding glass doors opening onto a garden",
+    eyebrow: "Get Started",
+    heading: "Ready to improve",
+    accent: "your space?",
+    body: "Let's discuss your next aluminium project.",
   },
 ] as const;
 
@@ -99,16 +121,15 @@ export function Hero() {
 
         <Container className="relative flex h-full items-end pb-20 sm:items-center sm:pb-0">
           <div className="max-w-xl">
-            <Eyebrow tone="light">{site.name}</Eyebrow>
+            <Eyebrow tone="light">{slides[index].eyebrow}</Eyebrow>
 
             <h1 className="mt-6 text-[2.15rem] leading-[1.06] text-white sm:text-5xl lg:text-[3.4rem]">
-              Quality aluminium solutions.
-              <span className="mt-2 block text-orange-soft">Built for better spaces.</span>
+              {slides[index].heading}
+              <span className="mt-2 block text-orange-soft">{slides[index].accent}</span>
             </h1>
 
             <p className="mt-7 max-w-lg text-[1.02rem] leading-relaxed text-white/80 sm:text-[1.08rem]">
-              Professional aluminium windows, doors, partitions, shopfronts and
-              custom fabrication for residential and commercial spaces.
+              {slides[index].body}
             </p>
 
             <div className="mt-9 flex flex-col gap-3 xs:flex-row xs:flex-wrap">
