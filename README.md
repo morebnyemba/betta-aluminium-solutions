@@ -24,7 +24,7 @@ app/
   sitemap.ts robots.ts  generated at build
   icon.png apple-icon.png
 components/
-  layout/               Navbar, Footer, Logo
+  layout/               Navbar, Footer, Logo, MobileActionBar
   ui/                   Container, Button, SectionHeading, Eyebrow, ArchImage, Reveal, PageHeader
   home/                 Hero, TrustStrip, ServicesGrid, FeaturedProjects, AboutPreview, WhyBetta, CtaBand
   projects/             ProjectGallery (filters + lightbox)
@@ -102,6 +102,19 @@ the form:
 Set `NEXT_PUBLIC_SITE_URL` before building. Canonical URLs, Open Graph tags,
 `sitemap.xml` and `robots.txt` all read it; without it they fall back to
 `http://localhost:3000`.
+
+## Mobile enquiry bar
+
+Below `lg`, `components/layout/MobileActionBar.tsx` renders a persistent
+bottom bar with "Call Now" and "WhatsApp" actions, built from the first
+Zimbabwe number in `phones`. It exists because the desktop "Get a Quote"
+button is hidden inside the collapsed mobile menu, so without it there is no
+one-tap contact path while a phone visitor is just browsing.
+
+## CI
+
+`.github/workflows/ci.yml` runs `npm run lint`, `tsc --noEmit` and
+`npm run build` on every push and pull request.
 
 ## Accessibility
 

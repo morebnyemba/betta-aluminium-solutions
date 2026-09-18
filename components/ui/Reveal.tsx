@@ -30,6 +30,10 @@ export function Reveal({
       !("IntersectionObserver" in window) ||
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
+      // `shown` must start false to match the server-rendered markup, so this
+      // can't move to a lazy useState initializer without a hydration
+      // mismatch — the effect is the correct place to promote it once mounted.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShown(true);
       return;
     }

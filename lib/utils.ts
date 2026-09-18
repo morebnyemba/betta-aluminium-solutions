@@ -19,3 +19,10 @@ export function cn(...values: ClassValue[]): string {
 export function telHref(phone: string): string {
   return `tel:${phone.replace(/[^\d+]/g, "")}`;
 }
+
+/** Turns "+263 776 596 851" into a wa.me chat link, digits only. */
+export function whatsappHref(phone: string, message?: string): string {
+  const digits = phone.replace(/[^\d]/g, "");
+  const query = message ? `?text=${encodeURIComponent(message)}` : "";
+  return `https://wa.me/${digits}${query}`;
+}

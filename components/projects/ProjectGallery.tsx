@@ -22,6 +22,15 @@ export function ProjectGallery({
   const closeRef = useRef<HTMLButtonElement>(null);
   const lastFocused = useRef<HTMLElement | null>(null);
 
+  // A filter change must not leave the lightbox pointing at a removed item.
+  // Adjusted during render rather than in an effect, so it lands in the same
+  // pass as the category change.
+  const [prevCategory, setPrevCategory] = useState(category);
+  if (category !== prevCategory) {
+    setPrevCategory(category);
+    setOpenIndex(null);
+  }
+
   const visible = useMemo(
     () => (category === "All" ? items : items.filter((i) => i.category === category)),
     [items, category],
@@ -65,11 +74,6 @@ export function ProjectGallery({
       window.removeEventListener("keydown", onKey);
     };
   }, [openIndex, close, step]);
-
-  // A filter change must not leave the lightbox pointing at a removed item.
-  useEffect(() => {
-    setOpenIndex(null);
-  }, [category]);
 
   const active = openIndex === null ? null : visible[openIndex];
 

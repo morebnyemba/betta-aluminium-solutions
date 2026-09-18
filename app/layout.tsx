@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import { email, phones, services, site } from "@/lib/site";
 import "./globals.css";
 
@@ -49,6 +50,7 @@ export const metadata: Metadata = {
   },
   // Favicon and Apple touch icon come from app/icon.png and app/apple-icon.png,
   // both generated from the supplied logo artwork.
+  manifest: "/site.webmanifest",
   robots: { index: true, follow: true },
 };
 
@@ -96,7 +98,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen antialiased">
+      <body className="min-h-screen pb-16 antialiased lg:pb-0">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:uppercase focus:tracking-[0.14em] focus:text-white"
@@ -106,6 +108,7 @@ export default function RootLayout({
         <Navbar />
         <main id="main">{children}</main>
         <Footer />
+        <MobileActionBar />
         <script
           type="application/ld+json"
           suppressHydrationWarning
