@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArchImage } from "@/components/ui/ArchImage";
 import { Reveal } from "@/components/ui/Reveal";
+import { cn } from "@/lib/utils";
 import { services } from "@/lib/site";
 
 export function ServicesGrid() {
@@ -23,11 +24,10 @@ export function ServicesGrid() {
               as="article"
               key={service.slug}
               delay={(i % 3) * 80}
-              className={
-                i < 2
-                  ? "group bg-white lg:col-span-3"
-                  : "group bg-white lg:col-span-2"
-              }
+              className={cn(
+                "group relative bg-white transition-shadow duration-300 hover:z-10 hover:shadow-[0_24px_48px_-28px_rgba(20,23,26,0.35)]",
+                i < 2 ? "lg:col-span-3" : "lg:col-span-2",
+              )}
             >
               <Link href={`/services/${service.slug}`} className="block h-full">
                 <ArchImage
@@ -40,6 +40,10 @@ export function ServicesGrid() {
                   <h3 className="text-lg font-bold tracking-tight text-ink sm:text-xl">
                     {service.name}
                   </h3>
+                  <span
+                    aria-hidden
+                    className="rule-brand mt-3 block w-8 origin-left scale-x-0 transition-transform duration-300 motion-safe:group-hover:scale-x-100"
+                  />
                   <p className="mt-3 text-sm leading-relaxed text-slate">
                     {service.summary}
                   </p>

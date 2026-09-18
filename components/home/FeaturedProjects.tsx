@@ -6,6 +6,9 @@ import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { gallery } from "@/lib/site";
 
 export function FeaturedProjects() {
+  const featured = gallery.slice(0, 6);
+  const hasReference = featured.some((item) => item.kind === "reference");
+
   return (
     <section className="border-b border-line bg-white py-20 sm:py-24 lg:py-28">
       <Container>
@@ -22,8 +25,16 @@ export function FeaturedProjects() {
         </div>
 
         <div className="mt-12">
-          <ProjectGallery items={gallery.slice(0, 6)} showFilters={false} />
+          <ProjectGallery items={featured} showFilters={false} />
         </div>
+
+        {hasReference ? (
+          <p className="mt-12 max-w-2xl border-l-2 border-line pl-5 text-sm leading-relaxed text-mute">
+            Images marked as design references illustrate the type of work
+            described and are not presented as completed Betta Aluminium
+            Solutions installations.
+          </p>
+        ) : null}
       </Container>
     </section>
   );
