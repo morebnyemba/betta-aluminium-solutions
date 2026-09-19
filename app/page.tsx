@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home/Hero";
+import { StatsStrip } from "@/components/home/StatsStrip";
 import { TrustStrip } from "@/components/home/TrustStrip";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
@@ -12,6 +13,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <StatsStrip />
       <TrustStrip />
       <ServicesGrid />
       <FeaturedProjects />

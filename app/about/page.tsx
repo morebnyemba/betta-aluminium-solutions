@@ -8,7 +8,7 @@ import { ArchImage } from "@/components/ui/ArchImage";
 import { Reveal } from "@/components/ui/Reveal";
 import { CtaBand } from "@/components/home/CtaBand";
 import { WhyBetta } from "@/components/home/WhyBetta";
-import { services } from "@/lib/site";
+import { services, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -56,7 +56,9 @@ export default function AboutPage() {
                 installation for residential and commercial environments. The
                 work covers windows, doors, partitions, shopfronts and custom
                 aluminium fabrication — from a single replacement opening
-                through to a full commercial frontage.
+                through to a full commercial frontage. Operating since{" "}
+                {site.foundedYear}, the business has completed{" "}
+                {site.projectsCompleted} projects across Harare.
               </p>
               <p>
                 Aluminium suits modern buildings because it holds a slim

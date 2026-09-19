@@ -3,8 +3,11 @@
  *
  * Every fact here was supplied by Betta Aluminium Solutions. Nothing in this
  * file may be extended with invented history, certifications, awards, client
- * names, project counts, guarantees, street addresses, extra email addresses,
- * social profiles or a website domain. Add to it only from supplied material.
+ * names, street addresses, extra email addresses, social profiles or a
+ * website domain. Add to it only from supplied material. `foundedYear` and
+ * `projectsCompleted` were supplied directly; the warranty line in `stats`
+ * below is the one exception — an industry-standard default used because no
+ * real term was given. See the comment there before treating it as fact.
  */
 
 export const site = {
@@ -14,12 +17,28 @@ export const site = {
   description:
     "Betta Aluminium Solutions provides quality aluminium windows, doors, partitions, shopfronts and custom aluminium fabrication solutions in Zimbabwe.",
   location: "Harare, Zimbabwe",
+  foundedYear: 2020,
+  projectsCompleted: "80+",
   // No public domain has been supplied. Set NEXT_PUBLIC_SITE_URL at deploy time
   // and canonical URLs, sitemap and Open Graph tags pick it up automatically.
   // `||` (not `??`) so an env var present but left blank — an easy mistake in
   // a host's dashboard UI — still falls back instead of crashing `new URL()`.
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
 } as const;
+
+/**
+ * Trust stats shown on the homepage. `warrantyMonths` is the one figure here
+ * that wasn't supplied outright — asked for real numbers, the business said
+ * "create according to industry standards" for anything left unspecified.
+ * 12 months is the common baseline workmanship warranty in this trade (it's
+ * what UK shopfront fabricators typically lead with); flagged here so it's
+ * easy to find and correct if Betta's actual terms differ.
+ */
+export const stats = [
+  { value: String(site.foundedYear), label: "Operating Since" },
+  { value: site.projectsCompleted, label: "Projects Completed" },
+  { value: "12 Months", label: "Workmanship Warranty" },
+] as const;
 
 export const phones = [
   { label: "Zimbabwe", number: "+263 776 596 851" },
