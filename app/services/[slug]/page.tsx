@@ -135,7 +135,7 @@ export default async function ServiceDetailPage({
               </ul>
               <Link
                 href={`/contact?service=${encodeURIComponent(service.name)}`}
-                className="mt-8 inline-flex min-h-12 w-full items-center justify-center bg-red px-6 text-[0.76rem] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-red-dark"
+                className="mt-8 inline-flex min-h-12 w-full items-center justify-center bg-red px-6 text-[0.76rem] font-semibold uppercase tracking-[0.14em] text-white transition-[background-color,transform,box-shadow] hover:bg-red-dark focus-visible:bg-red-dark motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-[0_10px_24px_-8px_rgba(20,23,26,0.35)] motion-safe:focus-visible:-translate-y-0.5 motion-safe:focus-visible:shadow-[0_10px_24px_-8px_rgba(20,23,26,0.35)]"
               >
                 Enquire About {service.name}
               </Link>

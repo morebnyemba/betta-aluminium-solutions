@@ -4,8 +4,11 @@ import { cn } from "@/lib/utils";
 type Variant = "primary" | "dark" | "outline" | "light" | "outlineLight";
 type Size = "md" | "lg";
 
+// A colour-only hover (the previous version) is too subtle to read as
+// "responding to the cursor" at a glance — a small lift plus a shadow reads
+// as interactive from across the screen, not just up close.
 const base =
-  "inline-flex items-center justify-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] transition-[background-color,border-color,box-shadow,transform] duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-[0_10px_24px_-8px_rgba(20,23,26,0.35)] motion-safe:focus-visible:-translate-y-0.5 motion-safe:focus-visible:shadow-[0_10px_24px_-8px_rgba(20,23,26,0.35)] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60";
 
 const sizes: Record<Size, string> = {
   // 48px / 56px tall — comfortably above the 44px touch-target minimum.
