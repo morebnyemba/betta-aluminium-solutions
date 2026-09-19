@@ -123,6 +123,45 @@
       transform: scaleX(1);
     }
   }
+
+  /*
+   * Blueprint-style textures for otherwise flat, large background areas —
+   * a dot grid reads as graph paper / a technical drawing, which suits a
+   * fabrication business better than an arbitrary pattern would. Applied
+   * as a background-image alongside a section's existing background-color
+   * utility (bg-ink, bg-shell, …), never in place of one — the two layer
+   * without conflict since Tailwind's `bg-*` only sets background-color.
+   *
+   * Deliberately not used everywhere: it's a "louder" effect than the
+   * corner accents elsewhere on the site because it covers the whole
+   * element rather than a corner, so it's reserved for sections that are
+   * currently plain and don't already carry a corner shape of their own
+   * (Footer, StatsStrip, PageHeader) — piling a full-bleed pattern on top
+   * of a section that already has a wedge accent would be two competing
+   * decorative languages in the same place.
+   */
+  .bg-dot-grid-dark {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .bg-dot-grid-light {
+    background-image: radial-gradient(rgba(20, 23, 26, 0.07) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* A diagonal cross-hatch rather than dots — reserved for CtaBand, so the
+     one full-bleed pattern on a coloured (not dark-neutral or shell) surface
+     reads as a distinct texture, not a copy-paste of the grid used elsewhere. */
+  .bg-hatch-light {
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.07) 0,
+      rgba(255, 255, 255, 0.07) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+  }
 }
 
 @layer utilities {

@@ -17,10 +17,17 @@ export function CtaBand({
   cta?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-red-dark via-red to-[#b03a00]">
+    <section className="relative overflow-hidden bg-gradient-to-br from-red-dark via-red to-[#b03a00] bg-hatch-light">
+      {/* Was a border-only rotated square offset off-canvas on both axes —
+          border-top above the section's top edge, border-right past its
+          right edge, both clipped away by overflow-hidden, leaving only two
+          stray diagonal fragments where the rotated corners happened to
+          cross back into view (not the square the code intended). Swapped
+          for a filled wedge on one axis only, same fix as the homepage
+          sections this same bug turned up in. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-16 -top-20 hidden h-80 w-80 rotate-12 border-[3px] border-orange/40 lg:block"
+        className="pointer-events-none absolute -right-16 top-1/2 hidden h-72 w-72 -translate-y-1/2 bg-orange/[0.14] [clip-path:polygon(0_0,100%_0,100%_100%)] lg:block"
       />
       <div
         aria-hidden

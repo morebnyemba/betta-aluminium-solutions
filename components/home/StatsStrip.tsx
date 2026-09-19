@@ -14,7 +14,7 @@ export function StatsStrip() {
   return (
     <section
       aria-label="Betta Aluminium Solutions in numbers"
-      className="relative overflow-hidden bg-ink"
+      className="relative overflow-hidden bg-ink bg-dot-grid-dark"
     >
       {/* Same red-to-orange accent recipe used throughout the site (Eyebrow,
           WhyBetta, ServicesGrid) — ties this section back to the brand mark

@@ -11,7 +11,7 @@ export function PageHeader({
   lead?: string;
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-line bg-shell">
+    <section className="relative overflow-hidden border-b border-line bg-shell bg-dot-grid-light">
       <div
         aria-hidden
         className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/3 lg:block"

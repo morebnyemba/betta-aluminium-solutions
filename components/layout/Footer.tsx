@@ -9,7 +9,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-charcoal text-white/70">
+    <footer className="bg-charcoal bg-dot-grid-dark text-white/70">
       <Container className="grid gap-12 py-16 md:grid-cols-12 md:py-20">
         <div className="md:col-span-5">
           <Logo width={230} className="w-[190px] sm:w-[230px]" />
