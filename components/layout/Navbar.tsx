@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Mail, Menu, MessageCircle, Phone, X } from "lucide-react";
@@ -13,8 +14,25 @@ export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
+
+  // The backdrop and drawer are portalled to document.body (see the render
+  // below) rather than left nested inside <header>. <header> is `sticky` with
+  // its own z-index, which makes it a stacking context — and a stacking
+  // context traps its `position: fixed` descendants for paint order no
+  // matter how high their own z-index is. In practice that meant the drawer
+  // could render underneath sibling content later in the page (the Hero
+  // carousel) instead of on top of the whole viewport. Portals need a real
+  // DOM node, which isn't available during SSR, hence the mounted flag.
+  // `mounted` must start false to match the server-rendered markup, so this
+  // can't move to a lazy useState initializer without a hydration mismatch —
+  // the effect is the correct place to promote it once mounted.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   // Close the panel on navigation, and never leave the page locked behind it.
   // Adjusted during render (not an effect) so the reset lands in the same
@@ -76,80 +94,8 @@ export function Navbar() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
-  return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 w-full transition-[background-color,border-color,box-shadow,padding] duration-300",
-        scrolled || open
-          ? "border-b border-line bg-white py-2.5 shadow-[0_1px_0_rgba(20,23,26,0.04)]"
-          : "border-b border-transparent bg-white/85 py-4 backdrop-blur-md",
-      )}
-    >
-      <Container className="flex items-center justify-between gap-4">
-        <Logo
-          width={184}
-          priority
-          className={cn(
-            "transition-[width] duration-300",
-            scrolled ? "w-[124px] sm:w-[148px]" : "w-[134px] sm:w-[184px]",
-          )}
-        />
-
-        <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              aria-current={isActive(item.href) ? "page" : undefined}
-              className={cn(
-                "relative py-2 text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition-colors",
-                isActive(item.href)
-                  ? "text-ink"
-                  : "text-slate hover:text-ink focus-visible:text-ink",
-              )}
-            >
-              {item.label}
-              <span
-                aria-hidden
-                className={cn(
-                  "absolute inset-x-0 -bottom-0.5 h-[2px] origin-left bg-orange transition-transform duration-300",
-                  isActive(item.href) ? "scale-x-100" : "scale-x-0",
-                )}
-              />
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-5">
-          <a
-            href={telHref(phones[0].number)}
-            className="hidden items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-slate transition-colors hover:text-ink focus-visible:text-ink lg:inline-flex"
-          >
-            <Phone size={15} className="text-orange" aria-hidden />
-            <span className="tabular-nums">{phones[0].number}</span>
-          </a>
-
-          <Link
-            href="/contact"
-            className="hidden min-h-11 items-center bg-red px-6 text-[0.76rem] font-semibold uppercase tracking-[0.14em] text-white transition-[background-color,transform,box-shadow] hover:bg-red-dark focus-visible:bg-red-dark motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-[0_10px_24px_-8px_rgba(20,23,26,0.35)] motion-safe:focus-visible:-translate-y-0.5 motion-safe:focus-visible:shadow-[0_10px_24px_-8px_rgba(20,23,26,0.35)] lg:inline-flex"
-          >
-            Get a Quote
-          </Link>
-
-          <button
-            ref={toggleRef}
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? "Close menu" : "Open menu"}
-            className="inline-flex size-11 items-center justify-center border border-line text-ink transition-colors hover:border-charcoal focus-visible:border-charcoal lg:hidden"
-          >
-            {open ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
-          </button>
-        </div>
-      </Container>
-
+  const overlay = (
+    <>
       {/* Backdrop */}
       <div
         aria-hidden
@@ -269,6 +215,85 @@ export function Navbar() {
           </div>
         </div>
       </div>
+    </>
+  );
+
+  return (
+    <>
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full transition-[background-color,border-color,box-shadow,padding] duration-300",
+        scrolled || open
+          ? "border-b border-line bg-white py-2.5 shadow-[0_1px_0_rgba(20,23,26,0.04)]"
+          : "border-b border-transparent bg-white/85 py-4 backdrop-blur-md",
+      )}
+    >
+      <Container className="flex items-center justify-between gap-4">
+        <Logo
+          width={184}
+          priority
+          className={cn(
+            "transition-[width] duration-300",
+            scrolled ? "w-[124px] sm:w-[148px]" : "w-[134px] sm:w-[184px]",
+          )}
+        />
+
+        <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
+          {nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-current={isActive(item.href) ? "page" : undefined}
+              className={cn(
+                "relative py-2 text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition-colors",
+                isActive(item.href)
+                  ? "text-ink"
+                  : "text-slate hover:text-ink focus-visible:text-ink",
+              )}
+            >
+              {item.label}
+              <span
+                aria-hidden
+                className={cn(
+                  "absolute inset-x-0 -bottom-0.5 h-[2px] origin-left bg-orange transition-transform duration-300",
+                  isActive(item.href) ? "scale-x-100" : "scale-x-0",
+                )}
+              />
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-5">
+          <a
+            href={telHref(phones[0].number)}
+            className="hidden items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-slate transition-colors hover:text-ink focus-visible:text-ink lg:inline-flex"
+          >
+            <Phone size={15} className="text-orange" aria-hidden />
+            <span className="tabular-nums">{phones[0].number}</span>
+          </a>
+
+          <Link
+            href="/contact"
+            className="hidden min-h-11 items-center bg-red px-6 text-[0.76rem] font-semibold uppercase tracking-[0.14em] text-white transition-[background-color,transform,box-shadow] hover:bg-red-dark focus-visible:bg-red-dark motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-[0_10px_24px_-8px_rgba(20,23,26,0.35)] motion-safe:focus-visible:-translate-y-0.5 motion-safe:focus-visible:shadow-[0_10px_24px_-8px_rgba(20,23,26,0.35)] lg:inline-flex"
+          >
+            Get a Quote
+          </Link>
+
+          <button
+            ref={toggleRef}
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="inline-flex size-11 items-center justify-center border border-line text-ink transition-colors hover:border-charcoal focus-visible:border-charcoal lg:hidden"
+          >
+            {open ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
+          </button>
+        </div>
+      </Container>
     </header>
+    {mounted ? createPortal(overlay, document.body) : null}
+    </>
   );
 }
