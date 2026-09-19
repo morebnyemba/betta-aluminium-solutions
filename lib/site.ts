@@ -18,7 +18,7 @@ export const site = {
     "Betta Aluminium Solutions provides quality aluminium windows, doors, partitions, shopfronts and custom aluminium fabrication solutions in Zimbabwe.",
   location: "Harare, Zimbabwe",
   foundedYear: 2020,
-  projectsCompleted: "80+",
+  projectsCompleted: 80,
   // No public domain has been supplied. Set NEXT_PUBLIC_SITE_URL at deploy time
   // and canonical URLs, sitemap and Open Graph tags pick it up automatically.
   // `||` (not `??`) so an env var present but left blank — an easy mistake in
@@ -27,17 +27,39 @@ export const site = {
 } as const;
 
 /**
- * Trust stats shown on the homepage. `warrantyMonths` is the one figure here
- * that wasn't supplied outright — asked for real numbers, the business said
- * "create according to industry standards" for anything left unspecified.
- * 12 months is the common baseline workmanship warranty in this trade (it's
- * what UK shopfront fabricators typically lead with); flagged here so it's
- * easy to find and correct if Betta's actual terms differ.
+ * Trust stats shown on the homepage's StatsStrip. The warranty entry is the
+ * one figure here that wasn't supplied outright — asked for real numbers,
+ * the business said "create according to industry standards" for anything
+ * left unspecified. 12 months is the common baseline workmanship warranty
+ * in this trade (it's what UK shopfront fabricators typically lead with);
+ * flagged here so it's easy to find and correct if Betta's actual terms
+ * differ.
+ *
+ * `kind: "count"` drives a count-up animation on scroll (StatsStrip only
+ * animates a genuine accumulation like a project total — a founding year or
+ * a fixed warranty term isn't something that narratively "counts up to", so
+ * those render as static text instead).
  */
 export const stats = [
-  { value: String(site.foundedYear), label: "Operating Since" },
-  { value: site.projectsCompleted, label: "Projects Completed" },
-  { value: "12 Months", label: "Workmanship Warranty" },
+  {
+    kind: "static",
+    icon: "calendar",
+    value: String(site.foundedYear),
+    label: "Operating Since",
+  },
+  {
+    kind: "count",
+    icon: "check",
+    target: site.projectsCompleted,
+    suffix: "+",
+    label: "Projects Completed",
+  },
+  {
+    kind: "static",
+    icon: "shield",
+    value: "12 Months",
+    label: "Workmanship Warranty",
+  },
 ] as const;
 
 export const phones = [

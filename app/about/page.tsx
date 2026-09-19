@@ -58,7 +58,7 @@ export default function AboutPage() {
                 aluminium fabrication — from a single replacement opening
                 through to a full commercial frontage. Operating since{" "}
                 {site.foundedYear}, the business has completed{" "}
-                {site.projectsCompleted} projects across Harare.
+                {site.projectsCompleted}+ projects across Harare.
               </p>
               <p>
                 Aluminium suits modern buildings because it holds a slim
