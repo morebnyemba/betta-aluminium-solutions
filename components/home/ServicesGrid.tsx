@@ -9,7 +9,24 @@ import { services } from "@/lib/site";
 
 export function ServicesGrid() {
   return (
-    <section id="services" className="border-b border-line bg-white py-20 sm:py-24 lg:py-28">
+    <section
+      id="services"
+      className="relative overflow-hidden border-b border-line bg-white py-20 sm:py-24 lg:py-28"
+    >
+      {/* Originally a rotated border-square echoing CtaBand's — but a border
+          stroke sitting exactly on a box's edge, offset off-canvas on both
+          axes, is precisely what overflow-hidden crops away completely: the
+          border-top lands above the section's top edge, the border-right
+          lands past its right edge, and nothing of the actual outline
+          survives (confirmed by inspecting the rendered box in the browser,
+          not just eyeballing a screenshot). A filled wedge doesn't have that
+          failure mode — clipping it just crops the shape, which is the
+          intended effect. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-12 top-16 hidden h-40 w-40 bg-red/[0.05] [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:block"
+      />
+
       <Container>
         <SectionHeading
           eyebrow="Services"

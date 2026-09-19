@@ -12,17 +12,31 @@ const icons = {
 
 export function StatsStrip() {
   return (
-    <section aria-label="Betta Aluminium Solutions in numbers" className="relative bg-ink">
+    <section
+      aria-label="Betta Aluminium Solutions in numbers"
+      className="relative overflow-hidden bg-ink"
+    >
       {/* Same red-to-orange accent recipe used throughout the site (Eyebrow,
           WhyBetta, ServicesGrid) — ties this section back to the brand mark
           rather than landing as a plain dark band between Hero and TrustStrip. */}
       <div
         aria-hidden
-        className="h-[3px]"
+        className="relative h-[3px]"
         style={{
           background:
             "linear-gradient(90deg, var(--color-red) 0%, var(--color-red) 45%, var(--color-orange) 45%, var(--color-orange) 100%)",
         }}
+      />
+
+      {/* A large, barely-there triangle bleeding off the right edge only.
+          Vertically centred (not offset-and-clipped on both axes) and
+          filled rather than outlined, so what's left after overflow-hidden
+          crops it is still a clean, predictable wedge instead of a border
+          stroke that overflow-hidden can crop into invisibility — see the
+          note on ServicesGrid's accent for how that failure mode looks. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-10 top-1/2 hidden h-40 w-40 -translate-y-1/2 bg-white/[0.05] [clip-path:polygon(0_0,100%_0,100%_100%)] lg:block"
       />
 
       <Container>

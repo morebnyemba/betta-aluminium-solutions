@@ -12,7 +12,22 @@ const icons = {
 
 export function TrustStrip() {
   return (
-    <section aria-label="What we focus on" className="border-b border-line bg-shell">
+    <section
+      aria-label="What we focus on"
+      className="relative overflow-hidden border-b border-line bg-shell"
+    >
+      {/* A quiet echo of PageHeader's corner triangle, mirrored to the left
+          and dropped to a fraction of the opacity — this section follows the
+          dark StatsStrip rather than opening a page, so it reads as a footnote
+          accent rather than a title-page flourish. Offset (and so clipped by
+          overflow-hidden) on the left edge only, not top-and-left together —
+          clipping both axes of a shape this small leaves only a sliver of a
+          sliver, easy to lose entirely. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-8 top-1/2 hidden h-32 w-32 -translate-y-1/2 bg-red/[0.07] [clip-path:polygon(0_0,100%_0,0_100%)] lg:block"
+      />
+
       <Container>
         <ul className="grid divide-y divide-line/70 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4">
           {valueProps.map((item, i) => {

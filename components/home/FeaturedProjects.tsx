@@ -11,7 +11,20 @@ export async function FeaturedProjects() {
   const hasReference = featured.some((item) => item.kind === "reference");
 
   return (
-    <section className="border-b border-line bg-white py-20 sm:py-24 lg:py-28">
+    <section className="relative overflow-hidden border-b border-line bg-white py-20 sm:py-24 lg:py-28">
+      {/* The brand's own two-tone rule (red/orange, as seen under every
+          Eyebrow) blown up into a diagonal background stroke rather than a
+          corner shape — a different treatment from the triangles and squares
+          elsewhere, so the page doesn't repeat one motif everywhere. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-16 top-10 hidden h-[3px] w-56 -rotate-[38deg] opacity-[0.12] lg:block"
+        style={{
+          background:
+            "linear-gradient(90deg, var(--color-red) 0%, var(--color-red) 45%, var(--color-orange) 45%, var(--color-orange) 100%)",
+        }}
+      />
+
       <Container>
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading

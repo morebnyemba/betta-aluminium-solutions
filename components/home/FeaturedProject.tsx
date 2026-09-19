@@ -11,7 +11,18 @@ import { Reveal } from "@/components/ui/Reveal";
  */
 export function FeaturedProject() {
   return (
-    <section className="border-b border-line bg-white py-20 sm:py-24 lg:py-28">
+    <section className="relative overflow-hidden border-b border-line bg-white py-20 sm:py-24 lg:py-28">
+      {/* Was a two-sided border bracket offset off-canvas on both axes —
+          which put the border-top above the section's top edge and the
+          border-right past its right edge, so overflow-hidden clipped away
+          both strokes and left nothing visible at all. Sitting flush in the
+          corner with zero bleed sidesteps that: a filled triangle, no
+          offset to get wrong. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-0 top-0 hidden h-24 w-24 bg-orange/[0.08] [clip-path:polygon(100%_0,100%_100%,0_0)] lg:block"
+      />
+
       <Container>
         <SectionHeading
           eyebrow="Featured Project"
