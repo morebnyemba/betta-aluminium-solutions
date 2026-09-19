@@ -192,6 +192,33 @@ export const whyBetta = [
   },
 ] as const;
 
+export const processSteps = [
+  {
+    index: "01",
+    title: "Enquire",
+    body: "Get in touch by phone, WhatsApp or the contact form with what you need.",
+    icon: "message",
+  },
+  {
+    index: "02",
+    title: "Site Measurement",
+    body: "We visit the site and measure the actual opening, not a catalogue size.",
+    icon: "ruler",
+  },
+  {
+    index: "03",
+    title: "Quotation",
+    body: "You receive a quote based on those measurements before any work starts.",
+    icon: "file",
+  },
+  {
+    index: "04",
+    title: "Fabrication & Installation",
+    body: "Sections are cut, assembled and installed by the same team that measured.",
+    icon: "hammer",
+  },
+] as const;
+
 export type ProjectCategory =
   | "Windows"
   | "Doors"

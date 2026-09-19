@@ -17,7 +17,7 @@ export function AboutPreview() {
             />
             <ArchImage
               src="/images/about-workshop.jpg"
-              alt="Aluminium and glass installation in a contemporary interior"
+              alt="Installer adjusting a hinged aluminium door into a kitchen opening"
               ratio="aspect-[4/3] lg:aspect-[6/5]"
               sizes="(min-width: 1024px) 48vw, 92vw"
               hover={false}
