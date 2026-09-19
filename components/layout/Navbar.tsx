@@ -202,6 +202,7 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => setOpen(false)}
                 aria-current={isActive(item.href) ? "page" : undefined}
                 className={cn(
                   "relative flex min-h-16 items-center border-b border-line-soft pl-4 text-[1rem] font-semibold uppercase tracking-[0.1em] transition-colors",
@@ -224,16 +225,23 @@ export function Navbar() {
         <div className="border-t border-line px-6 py-6">
           <Link
             href="/contact"
+            onClick={() => setOpen(false)}
             className="flex min-h-13 w-full items-center justify-center bg-red px-6 py-4 text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-white transition-[background-color,transform,box-shadow] hover:bg-red-dark focus-visible:bg-red-dark motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-[0_10px_24px_-8px_rgba(20,23,26,0.35)] motion-safe:focus-visible:-translate-y-0.5 motion-safe:focus-visible:shadow-[0_10px_24px_-8px_rgba(20,23,26,0.35)]"
           >
             Get a Quote
           </Link>
 
+          {/* Phone, WhatsApp and email all hand off to a different app (dialer,
+              WhatsApp, mail client) rather than navigating to a new page, so
+              the pathname-change effect above never fires for them — without
+              an explicit close here, the drawer was still open, exactly as
+              left, whenever someone came back to the browser tab. */}
           <div className="mt-6 space-y-1">
             {phones.map((phone) => (
               <a
                 key={phone.number}
                 href={telHref(phone.number)}
+                onClick={() => setOpen(false)}
                 className="flex min-h-11 items-center gap-3 text-sm text-slate transition-colors hover:text-ink focus-visible:text-ink"
               >
                 <Phone size={15} className="shrink-0 text-orange" aria-hidden />
@@ -244,6 +252,7 @@ export function Navbar() {
               href={whatsappHref(phones[0].number, "Hi Betta Aluminium, I'd like a quote.")}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
               className="flex min-h-11 items-center gap-3 text-sm text-slate transition-colors hover:text-ink focus-visible:text-ink"
             >
               <MessageCircle size={15} className="shrink-0 text-orange" aria-hidden />
@@ -251,6 +260,7 @@ export function Navbar() {
             </a>
             <a
               href={`mailto:${email}`}
+              onClick={() => setOpen(false)}
               className="flex min-h-11 items-center gap-3 break-all text-sm text-slate transition-colors hover:text-ink focus-visible:text-ink"
             >
               <Mail size={15} className="shrink-0 text-orange" aria-hidden />
