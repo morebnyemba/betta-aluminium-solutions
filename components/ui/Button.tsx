@@ -19,13 +19,13 @@ const sizes: Record<Size, string> = {
  * 6.6:1, and orange appears as the hover edge and accent rules.
  */
 const variants: Record<Variant, string> = {
-  primary: "bg-red text-white hover:bg-red-dark",
-  dark: "bg-charcoal text-white hover:bg-ink",
+  primary: "bg-red text-white hover:bg-red-dark focus-visible:bg-red-dark",
+  dark: "bg-charcoal text-white hover:bg-ink focus-visible:bg-ink",
   outline:
-    "border border-line bg-white text-ink hover:border-charcoal hover:bg-shell",
-  light: "bg-white text-ink hover:bg-shell-deep",
+    "border border-line bg-white text-ink hover:border-charcoal hover:bg-shell focus-visible:border-charcoal focus-visible:bg-shell",
+  light: "bg-white text-ink hover:bg-shell-deep focus-visible:bg-shell-deep",
   outlineLight:
-    "border border-white/35 text-white hover:border-white hover:bg-white/10",
+    "border border-white/35 text-white hover:border-white hover:bg-white/10 focus-visible:border-white focus-visible:bg-white/10",
 };
 
 type CommonProps = {

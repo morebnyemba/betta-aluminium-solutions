@@ -73,7 +73,7 @@ export default function ServicesPage() {
 
                 <Link
                   href={`/services/${service.slug}`}
-                  className="mt-8 inline-flex min-h-11 items-center gap-2 text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-red transition-colors hover:text-red-dark"
+                  className="mt-8 inline-flex min-h-11 items-center gap-2 text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-red transition-colors hover:text-red-dark focus-visible:text-red-dark"
                 >
                   Explore Service
                   <ArrowRight size={14} aria-hidden />

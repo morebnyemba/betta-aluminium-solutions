@@ -128,14 +128,14 @@ export default function AboutPage() {
               <Reveal as="li" key={service.slug} delay={i * 60} className="bg-white">
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group block h-full p-7 transition-colors hover:bg-shell"
+                  className="group block h-full p-7 transition-colors hover:bg-shell focus-visible:bg-shell"
                 >
                   <h3 className="flex items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-ink">
                     {service.name}
                     <ArrowRight
                       size={13}
                       aria-hidden
-                      className="text-red opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
+                      className="text-red opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100 group-focus-visible:translate-x-0.5 group-focus-visible:opacity-100"
                     />
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-slate">

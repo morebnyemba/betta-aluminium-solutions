@@ -15,7 +15,7 @@ export function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-6 right-6 z-40 hidden size-14 items-center justify-center rounded-full bg-charcoal text-white shadow-[0_8px_24px_rgba(20,23,26,0.35)] transition-colors hover:bg-ink lg:flex"
+      className="fixed bottom-6 right-6 z-40 hidden size-14 items-center justify-center rounded-full bg-charcoal text-white shadow-[0_8px_24px_rgba(20,23,26,0.35)] transition-[background-color,transform] hover:bg-ink focus-visible:bg-ink motion-safe:hover:scale-105 motion-safe:focus-visible:scale-105 lg:flex"
     >
       <MessageCircle size={24} aria-hidden />
     </a>

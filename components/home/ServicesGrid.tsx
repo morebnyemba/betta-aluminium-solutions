@@ -42,11 +42,18 @@ export function ServicesGrid() {
               key={service.slug}
               delay={(i % 3) * 80}
               className={cn(
-                "group relative bg-white transition-shadow duration-300 hover:z-10 hover:shadow-[0_24px_48px_-28px_rgba(20,23,26,0.35)]",
+                "relative bg-white transition-shadow duration-300 hover:z-10 hover:shadow-[0_24px_48px_-28px_rgba(20,23,26,0.35)] focus-within:z-10 focus-within:shadow-[0_24px_48px_-28px_rgba(20,23,26,0.35)]",
                 i < 2 ? "lg:col-span-3" : "lg:col-span-2",
               )}
             >
-              <Link href={`/services/${service.slug}`} className="block h-full">
+              {/* `group` lives on the link itself, not this outer article —
+                  :focus-visible doesn't bubble to ancestors the way :hover
+                  does, so a keyboard user tabbing to the link would never
+                  trigger group-focus-visible: on its children if `group` sat
+                  up here instead. The card-lift shadow above still works
+                  from any element because it uses focus-within, which does
+                  bubble. */}
+              <Link href={`/services/${service.slug}`} className="group block h-full">
                 <ArchImage
                   src={service.image}
                   alt={service.imageAlt}
@@ -67,17 +74,17 @@ export function ServicesGrid() {
                       background:
                         "linear-gradient(90deg, var(--color-red) 0%, var(--color-red) 45%, var(--color-orange) 45%, var(--color-orange) 100%)",
                     }}
-                    className="mt-3 block h-[3px] w-8 origin-left scale-x-0 transition-transform duration-300 motion-safe:group-hover:scale-x-100"
+                    className="mt-3 block h-[3px] w-8 origin-left scale-x-0 transition-transform duration-300 motion-safe:group-hover:scale-x-100 motion-safe:group-focus-visible:scale-x-100"
                   />
                   <p className="mt-3 text-sm leading-relaxed text-slate">
                     {service.summary}
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-red transition-colors group-hover:text-red-dark">
+                  <span className="mt-6 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-red transition-colors group-hover:text-red-dark group-focus-visible:text-red-dark">
                     Explore Service
                     <ArrowRight
                       size={14}
                       aria-hidden
-                      className="transition-transform duration-300 motion-safe:group-hover:translate-x-1"
+                      className="transition-transform duration-300 motion-safe:group-hover:translate-x-1 motion-safe:group-focus-visible:translate-x-1"
                     />
                   </span>
                 </div>

@@ -162,7 +162,7 @@ export default async function ServiceDetailPage({
         <Container>
           <Link
             href={`/services/${next.slug}`}
-            className="group flex flex-col gap-2 border border-line p-8 transition-colors hover:border-charcoal sm:flex-row sm:items-center sm:justify-between"
+            className="group flex flex-col gap-2 border border-line p-8 transition-colors hover:border-charcoal focus-visible:border-charcoal sm:flex-row sm:items-center sm:justify-between"
           >
             <span>
               <span className="block text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-slate">
@@ -175,7 +175,7 @@ export default async function ServiceDetailPage({
             <ArrowRight
               size={20}
               aria-hidden
-              className="text-red transition-transform duration-300 motion-safe:group-hover:translate-x-1"
+              className="text-red transition-transform duration-300 motion-safe:group-hover:translate-x-1 motion-safe:group-focus-visible:translate-x-1"
             />
           </Link>
         </Container>

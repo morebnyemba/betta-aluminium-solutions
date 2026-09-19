@@ -36,7 +36,7 @@ export default function ContactPage() {
                 <li key={phone.number}>
                   <a
                     href={telHref(phone.number)}
-                    className="group flex min-h-16 items-center gap-4 py-4 transition-colors hover:bg-shell"
+                    className="group flex min-h-16 items-center gap-4 py-4 transition-colors hover:bg-shell focus-visible:bg-shell"
                   >
                     <Phone size={18} className="shrink-0 text-red" aria-hidden />
                     <span>
@@ -56,7 +56,7 @@ export default function ContactPage() {
                   href={whatsappHref(phones[0].number, "Hi Betta Aluminium, I'd like a quote.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex min-h-16 items-center gap-4 py-4 transition-colors hover:bg-shell"
+                  className="group flex min-h-16 items-center gap-4 py-4 transition-colors hover:bg-shell focus-visible:bg-shell"
                 >
                   <MessageCircle size={18} className="shrink-0 text-red" aria-hidden />
                   <span>
@@ -73,7 +73,7 @@ export default function ContactPage() {
               <li>
                 <a
                   href={`mailto:${email}`}
-                  className="group flex min-h-16 items-center gap-4 py-4 transition-colors hover:bg-shell"
+                  className="group flex min-h-16 items-center gap-4 py-4 transition-colors hover:bg-shell focus-visible:bg-shell"
                 >
                   <Mail size={18} className="shrink-0 text-red" aria-hidden />
                   <span className="min-w-0">

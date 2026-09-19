@@ -42,7 +42,7 @@ export function ArchImage({
         className={cn(
           "object-cover",
           hover &&
-            "transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.04]",
+            "transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.04] motion-safe:group-focus-visible:scale-[1.04]",
           imgClassName,
         )}
       />

@@ -32,7 +32,7 @@ export function Footer() {
               <li key={service.slug}>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="inline-flex min-h-11 items-center text-white/65 transition-colors hover:text-white sm:min-h-9"
+                  className="inline-flex min-h-11 items-center text-white/65 transition-colors hover:text-white focus-visible:text-white sm:min-h-9"
                 >
                   {service.name}
                 </Link>
@@ -51,7 +51,7 @@ export function Footer() {
               <li key={phone.number}>
                 <a
                   href={telHref(phone.number)}
-                  className="inline-flex min-h-11 items-center gap-3 text-white/65 transition-colors hover:text-white sm:min-h-9"
+                  className="inline-flex min-h-11 items-center gap-3 text-white/65 transition-colors hover:text-white focus-visible:text-white sm:min-h-9"
                 >
                   <Phone size={15} className="shrink-0 text-orange" aria-hidden />
                   <span className="tabular-nums">{phone.number}</span>
@@ -63,7 +63,7 @@ export function Footer() {
                 href={whatsappHref(phones[0].number, "Hi Betta Aluminium, I'd like a quote.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-center gap-3 text-white/65 transition-colors hover:text-white sm:min-h-9"
+                className="inline-flex min-h-11 items-center gap-3 text-white/65 transition-colors hover:text-white focus-visible:text-white sm:min-h-9"
               >
                 <MessageCircle size={15} className="shrink-0 text-orange" aria-hidden />
                 <span>WhatsApp</span>
@@ -72,7 +72,7 @@ export function Footer() {
             <li>
               <a
                 href={`mailto:${email}`}
-                className="inline-flex min-h-11 items-center gap-3 break-all text-white/65 transition-colors hover:text-white sm:min-h-9"
+                className="inline-flex min-h-11 items-center gap-3 break-all text-white/65 transition-colors hover:text-white focus-visible:text-white sm:min-h-9"
               >
                 <Mail size={15} className="shrink-0 text-orange" aria-hidden />
                 <span>{email}</span>
@@ -94,7 +94,7 @@ export function Footer() {
               href="https://slykertech.net"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-white"
+              className="transition-colors hover:text-white focus-visible:text-white"
             >
               Slyker Tech Web Services
             </a>
@@ -104,7 +104,7 @@ export function Footer() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="inline-flex min-h-11 items-center text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-white/50 transition-colors hover:text-white sm:min-h-0"
+                className="inline-flex min-h-11 items-center text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-white/50 transition-colors hover:text-white focus-visible:text-white sm:min-h-0"
               >
                 {item.label}
               </Link>

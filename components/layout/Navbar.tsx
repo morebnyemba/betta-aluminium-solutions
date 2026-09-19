@@ -103,7 +103,9 @@ export function Navbar() {
               aria-current={isActive(item.href) ? "page" : undefined}
               className={cn(
                 "relative py-2 text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition-colors",
-                isActive(item.href) ? "text-ink" : "text-slate hover:text-ink",
+                isActive(item.href)
+                  ? "text-ink"
+                  : "text-slate hover:text-ink focus-visible:text-ink",
               )}
             >
               {item.label}
@@ -121,7 +123,7 @@ export function Navbar() {
         <div className="flex items-center gap-5">
           <a
             href={telHref(phones[0].number)}
-            className="hidden items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-slate transition-colors hover:text-ink lg:inline-flex"
+            className="hidden items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-slate transition-colors hover:text-ink focus-visible:text-ink lg:inline-flex"
           >
             <Phone size={15} className="text-orange" aria-hidden />
             <span className="tabular-nums">{phones[0].number}</span>
@@ -129,7 +131,7 @@ export function Navbar() {
 
           <Link
             href="/contact"
-            className="hidden min-h-11 items-center bg-red px-6 text-[0.76rem] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-red-dark lg:inline-flex"
+            className="hidden min-h-11 items-center bg-red px-6 text-[0.76rem] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-red-dark focus-visible:bg-red-dark lg:inline-flex"
           >
             Get a Quote
           </Link>
@@ -141,7 +143,7 @@ export function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="inline-flex size-11 items-center justify-center border border-line text-ink transition-colors hover:border-charcoal lg:hidden"
+            className="inline-flex size-11 items-center justify-center border border-line text-ink transition-colors hover:border-charcoal focus-visible:border-charcoal lg:hidden"
           >
             {open ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
           </button>
@@ -188,7 +190,7 @@ export function Navbar() {
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close menu"
-            className="inline-flex size-10 items-center justify-center border border-line text-ink transition-colors hover:border-charcoal"
+            className="inline-flex size-10 items-center justify-center border border-line text-ink transition-colors hover:border-charcoal focus-visible:border-charcoal"
           >
             <X size={18} aria-hidden />
           </button>
@@ -222,7 +224,7 @@ export function Navbar() {
         <div className="border-t border-line px-6 py-6">
           <Link
             href="/contact"
-            className="flex min-h-13 w-full items-center justify-center bg-red px-6 py-4 text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-red-dark"
+            className="flex min-h-13 w-full items-center justify-center bg-red px-6 py-4 text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-red-dark focus-visible:bg-red-dark"
           >
             Get a Quote
           </Link>
@@ -232,7 +234,7 @@ export function Navbar() {
               <a
                 key={phone.number}
                 href={telHref(phone.number)}
-                className="flex min-h-11 items-center gap-3 text-sm text-slate transition-colors hover:text-ink"
+                className="flex min-h-11 items-center gap-3 text-sm text-slate transition-colors hover:text-ink focus-visible:text-ink"
               >
                 <Phone size={15} className="shrink-0 text-orange" aria-hidden />
                 <span className="tabular-nums">{phone.number}</span>
@@ -242,14 +244,14 @@ export function Navbar() {
               href={whatsappHref(phones[0].number, "Hi Betta Aluminium, I'd like a quote.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-h-11 items-center gap-3 text-sm text-slate transition-colors hover:text-ink"
+              className="flex min-h-11 items-center gap-3 text-sm text-slate transition-colors hover:text-ink focus-visible:text-ink"
             >
               <MessageCircle size={15} className="shrink-0 text-orange" aria-hidden />
               <span>WhatsApp</span>
             </a>
             <a
               href={`mailto:${email}`}
-              className="flex min-h-11 items-center gap-3 break-all text-sm text-slate transition-colors hover:text-ink"
+              className="flex min-h-11 items-center gap-3 break-all text-sm text-slate transition-colors hover:text-ink focus-visible:text-ink"
             >
               <Mail size={15} className="shrink-0 text-orange" aria-hidden />
               <span>{email}</span>

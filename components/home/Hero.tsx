@@ -161,7 +161,9 @@ export function Hero() {
                 aria-current={i === index}
                 className={cn(
                   "h-2 rounded-full transition-all",
-                  i === index ? "w-6 bg-white" : "w-2 bg-white/40 hover:bg-white/70",
+                  i === index
+                    ? "w-6 bg-white"
+                    : "w-2 bg-white/40 hover:bg-white/70 focus-visible:bg-white/70",
                 )}
               />
             ))}
@@ -172,7 +174,7 @@ export function Hero() {
               type="button"
               onClick={() => goTo(index - 1)}
               aria-label="Previous slide"
-              className="inline-flex size-9 items-center justify-center border border-white/30 text-white transition-colors hover:border-white hover:bg-white/10"
+              className="inline-flex size-9 items-center justify-center border border-white/30 text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:border-white focus-visible:bg-white/10"
             >
               <ChevronLeft size={16} aria-hidden />
             </button>
@@ -180,7 +182,7 @@ export function Hero() {
               type="button"
               onClick={() => goTo(index + 1)}
               aria-label="Next slide"
-              className="inline-flex size-9 items-center justify-center border border-white/30 text-white transition-colors hover:border-white hover:bg-white/10"
+              className="inline-flex size-9 items-center justify-center border border-white/30 text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:border-white focus-visible:bg-white/10"
             >
               <ChevronRight size={16} aria-hidden />
             </button>
@@ -188,7 +190,7 @@ export function Hero() {
               type="button"
               onClick={() => setPaused((p) => !p)}
               aria-label={paused ? "Play slide show" : "Pause slide show"}
-              className="inline-flex size-9 items-center justify-center border border-white/30 text-white transition-colors hover:border-white hover:bg-white/10"
+              className="inline-flex size-9 items-center justify-center border border-white/30 text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:border-white focus-visible:bg-white/10"
             >
               {paused ? <Play size={15} aria-hidden /> : <Pause size={15} aria-hidden />}
             </button>
