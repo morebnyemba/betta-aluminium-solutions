@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MobileActionBar } from "@/components/layout/MobileActionBar";
+import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { email, phones, services, site } from "@/lib/site";
 import "./globals.css";
 
@@ -109,6 +110,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <MobileActionBar />
+        <WhatsAppFloat />
         <script
           type="application/ld+json"
           suppressHydrationWarning
